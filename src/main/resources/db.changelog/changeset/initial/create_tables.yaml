@@ -1,0 +1,26 @@
+databaseChangeLog:
+- changeSet:
+    id: 241122001
+    author: Admin
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+                nullable: false
+                primaryKey: true
+                primaryKeyName: id
+            name: id
+            type: INT
+        - column:
+            constraints:
+                nullable: false
+            name: uuid
+            type: VARCHAR(255)
+        - column:
+            constraints:
+                nullable: false
+            name: amount
+            type: BIGINT
+        tableName: wallet
