@@ -1,4 +1,4 @@
-package com.javacode.walletapi.web;
+package com.javacode.walletapi.web.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;

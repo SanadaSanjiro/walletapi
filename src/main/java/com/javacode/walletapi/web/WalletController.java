@@ -5,6 +5,8 @@ import com.javacode.walletapi.errors.WalletApiBadParameterException;
 import com.javacode.walletapi.errors.WalletApiInsufficientFundsException;
 import com.javacode.walletapi.errors.WalletApiWalletNotFoundException;
 import com.javacode.walletapi.service.WalletService;
+import com.javacode.walletapi.web.dto.OperationDTO;
+import com.javacode.walletapi.web.dto.WalletDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -76,10 +78,10 @@ public class WalletController {
     }
 
     @ExceptionHandler(RuntimeException.class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ResponseEntity<ErrorResponse> handleInternalServerError(RuntimeException ex) {
         log.error("Exception: {}", ex.getMessage());
-        return new ResponseEntity<>(new ErrorResponse(HttpStatus.BAD_REQUEST, ex),
-                HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR, ex),
+                HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }

@@ -1,4 +1,4 @@
-package com.javacode.walletapi.web;
+package com.javacode.walletapi.web.dto;
 
 import com.javacode.walletapi.data.Wallet;
 import io.swagger.v3.oas.annotations.media.Schema;

@@ -1,6 +1,6 @@
 package com.javacode.walletapi.service;
 
-import com.javacode.walletapi.web.OperationDTO;
+import com.javacode.walletapi.web.dto.OperationDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.Objects;
