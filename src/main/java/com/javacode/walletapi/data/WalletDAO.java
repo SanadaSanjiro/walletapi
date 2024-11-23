@@ -8,7 +8,7 @@ import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
-public class WalletDao {
+public class WalletDAO {
     @Autowired
     private final WalletRepository repository;
 
@@ -16,11 +16,13 @@ public class WalletDao {
         return repository.findById(id);
     }
 
-    private Wallet create(Wallet wallet) {
+    public Optional<Wallet> getByUuid(String uuid) { return repository.getByUuid(uuid); }
+
+    public Wallet create(Wallet wallet) {
         return repository.save(wallet);
     }
 
-    private Wallet update(Wallet wallet) {
+    public Wallet update(Wallet wallet) {
         return repository.save(wallet);
     }
 }
