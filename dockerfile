@@ -1,6 +1,8 @@
 FROM openjdk:17
-ARG JAR_FILE=target/walletapi-0.0.1-SNAPSHOT.jar
 WORKDIR /opt/app
-COPY ${JAR_FILE} app.jar
+COPY .mvn/ .mvn
+COPY mvnw pom.xml ./
+RUN ./mvnw dependency:go-offline
+COPY src ./src
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","app.jar"]
+CMD ["./mvnw", "spring-boot:run"]
