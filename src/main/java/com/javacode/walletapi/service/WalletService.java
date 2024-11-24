@@ -51,10 +51,6 @@ public class WalletService {
             throw new WalletApiWalletNotFoundException("No data found with specified parameters");
         }
         Optional<Operation> optionalOperation = Operation.fromString(dto.getOperationType());
-        if (optionalOperation.isEmpty()) {
-            log.warn("Post: Wrong operation type");
-            throw new WalletApiWalletNotFoundException("Wrong operation type");
-        }
         Wallet wallet = optionalWallet.get();
         Operation operation = optionalOperation.get();
         long newAmount = operation.apply(wallet.getAmount(), dto.getAmount());

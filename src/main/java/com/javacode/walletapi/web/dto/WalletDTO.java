@@ -3,11 +3,13 @@ package com.javacode.walletapi.web.dto;
 import com.javacode.walletapi.data.Wallet;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * Wallet data for requests
  */
 @Data
+@NoArgsConstructor
 public class WalletDTO {
     @Schema(description = "Wallet UUID", example = "4ea8d54b-a48d-4a27-ae8d-6a0ea6a3fb4c")
     private String uuid;

@@ -3,7 +3,6 @@ package com.javacode.walletapi.service;
 import com.javacode.walletapi.web.dto.OperationDTO;
 import org.springframework.stereotype.Service;
 
-import java.util.Objects;
 import java.util.regex.Pattern;
 
 @Service
@@ -18,7 +17,6 @@ public class InputValidator {
 
     public boolean isValidWalletDTO(OperationDTO dto) {
         return isValidUUID(dto.getWalletId()) &&
-                !Objects.isNull(Operation.fromString(dto.getOperationType())) &&
-                dto.getAmount() > 0L;
+               Operation.fromString(dto.getOperationType()).isPresent() && dto.getAmount() > 0L;
     }
 }
