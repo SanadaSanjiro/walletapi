@@ -16,6 +16,13 @@ public class WalletDAO {
         return repository.findById(id);
     }
 
+    /**
+     * Takes a wallet from repository by it uuid
+     * @param uuid should be in hexadecimal digits, meaning it uses the numbers 0 through 9
+     *             and letters A through F. The hexadecimal digits are grouped as 32 hexadecimal characters with
+     *             four hyphens: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX.
+     * @return Optional Wallet
+     */
     public Optional<Wallet> getByUuid(String uuid) { return repository.getByUuid(uuid); }
 
     public Wallet create(Wallet wallet) {
